@@ -1,0 +1,67 @@
+extends main_layout.pug
+
+block body
+    div#main-container
+        div.row
+            aside.col-sm-2
+                ul.list-group
+                    each s in suburbs
+                        li.list-group-item 
+                            i.fas.fa-home
+                            a(href="/suburb/" + s.suburb)= s.suburb
+
+            main#grid.col-sm-10
+                each house in houses
+                    .card
+                        img.card-img-top(src="/images/houses/" + house.image_name, alt='Card image')
+                        .card-body
+                            h5.card-title()
+                                i.fas.fa-map-marker
+                                =house.suburb
+                            p.card-text()
+                                i.fas.fa-road
+                                =house.address
+                            a#more-btn.btn.btn-primary(href="#", data-toggle="modal", data-target="#house-modal", data-id=house.id, data-image=house.image_name, data-description=house.description) More info...
+
+                nav
+                    if totalPages > 0
+                    - var prev = currentPage - parseFloat(1)
+                    - var next = parseFloat(currentPage) + parseFloat(1)
+                        ul.pagination.pagination-sm
+                            if currentPage == 1
+                                li.page-item.disabled
+                                    a.page-link(href='') Prev
+                                li.page-item.disabled
+                                    a.page-link() #{currentPage} of #{totalPages}
+                                if suburb
+                                    a.page-link(href="/suburb/"+suburb+"/page/"+next++) Next
+                                else
+                                    a.page-link(href="/page/"+next++) Next
+
+                            else if currentPage == totalPages
+                                li.page-item
+                                    a.page-link(href=prev) Prev
+                                li.page-item.disabled
+                                    a.page-link(href=currentPage) #{currentPage} of #{totalPages}
+                                li.page-item.disabled
+                                    a.page-link(href='') Next
+
+                            else
+                                li.page-item
+                                    a.page-link(href=prev) Prev
+                                li.page-item.disabled
+                                    a.page-link(href=currentPage) #{currentPage} of #{totalPages}
+                                li.page-item
+                                    a.page-link(href=next++) Next
+
+        footer.border-top
+            p Footer
+
+    div#house-modal.modal(tabindex='-1', role='dialog', aria-labelledby="housemodalTitle" aria-hidden='true')
+        .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+                .modal-header
+                    img(src="" width='100%')
+                .modal-body
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Close

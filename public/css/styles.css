@@ -1,0 +1,51 @@
+p.pug-demo {
+    font-family: sans-serif;
+}
+
+i {
+    color: #007bff;
+    padding: 5px;
+}
+
+#grid {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 3fr 3fr 1fr;
+}
+
+#more-btn {
+    width: 100%;
+}
+
+#main-container {
+    padding: 1rem;
+}
+
+footer {
+    margin-top: 1rem;
+}
+
+main > nav {
+    grid-column: 1/7;
+}
+
+.card > img {
+    height: 190px;
+    object-fit: cover;
+}
+
+@media (max-width: 575px) {
+    #grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside {
+        margin-bottom: 1rem;
+    }
+
+    .card > img {
+        height: auto;
+    }
+}
