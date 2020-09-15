@@ -1,9 +1,9 @@
-# Real estate site using node and express
+# Real estate site
 ![Site image](site.png)
 
 This site shows a list of addresses around the Palmerston North area which you can filter by suburb. Click on "more info" to view a modal with some detailed info about the house.
 
-It uses node and express with a phpmyadmin MySQL database in the back end. The views use Pug rather than plain HTML, and bootstrap for styling .
+It uses node and express with a phpmyadmin MySQL database in the back end. The views use Pug rather than plain HTML, and bootstrap for styling.
 
 ## Setting up the database
 To set up the database I have provided a script which will create the table required and insert the relevant data.
