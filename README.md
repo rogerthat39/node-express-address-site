@@ -17,4 +17,4 @@ I have called the database "realestate" but have a look at the connection info i
 5. Run the project using ```node app.js```. 
 6. The site should be running on [localhost:3000](http://localhost:3000).
 
-Note: it doesn't seem to work very well on Firefox - you may need to use Chrome.
+Note: sometimes it doesn't seem to work very well on Firefox - you may need to use Chrome.
